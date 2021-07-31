@@ -1,0 +1,32 @@
+apply plugin: 'java' 
+apply plugin: 'eclipse'
+
+ sourceCompatibility = JavaVersion.VERSION_1_7
+ 
+sourceSets {
+ 	main {
+    	java {
+      		srcDir  'src'
+    	}
+  	}
+  	test {
+    	java {
+      		srcDir  'test'
+    	}
+  	}
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile 'log4j:log4j:1.2.16'
+    compile 'org.slf4j:slf4j-api:1.7+'
+    
+	runtime 'org.apache.commons:commons-lang3:3+'
+    runtime 'commons-logging:commons-logging:1.1.1'
+
+    compile project(':..:TonylinUtil')
+    
+    testCompile 'junit:junit:4.11'
+}

@@ -1,0 +1,5 @@
+#org.springsource.ide.eclipse.gradle.core.preferences.GradleProjectPreferences
+#Sat Dec 27 00:27:16 CST 2014
+build.family.org.gradle.tooling.model.eclipse.HierarchicalEclipseProject=;..;../TonylinUtil;
+org.springsource.ide.eclipse.gradle.linkedresources=
+org.springsource.ide.eclipse.gradle.rootprojectloc=

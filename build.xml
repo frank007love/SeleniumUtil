@@ -1,0 +1,31 @@
+<project name="SeleniumUtil" basedir="." default="build">
+	<import file="../BuildCommon/commonInclude.xml"/>
+	<target name="build">
+		<antcall target="compile"/>
+		<antcall target="jar"/>
+	</target>
+
+	<path id="libs">
+		<fileset dir="libs">
+			<include name="**.jar"/>
+		</fileset>
+		<fileset dir="../CommonLibraries/libs">
+			<include name="**.jar"/>
+		</fileset>
+		<fileset dir="../TonylinUtil/dist">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="compile" depends="clear, prepare">
+		<ant antfile="../TonylinUtil/build.xml" target="compile" dir="../TonylinUtil" inheritall="false"/>
+		<ant antfile="../TonylinUtil/build.xml" target="jar" dir="../TonylinUtil" inheritall="false"/>
+		
+		<javac optimize="on" debug="false" destdir="${dir.build}"
+			encoding="UTF-8" srcdir="src">
+			<classpath refid="libs"/>
+			<include name="**/**.java"/>
+		</javac>
+	</target>
+
+</project>
